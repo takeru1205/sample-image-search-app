@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: 'app'
+    # working_dir: '/app'
+    env_file:
+      - app.env
+    environment:
+      - DISPLAY=$DISPLAY
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics
+    volumes:
+      - ./:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: streamlit run app.py
+    ports:
+      - 8501:8501
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
