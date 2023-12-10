@@ -1,0 +1,5 @@
+app.env
+__pycache__
+*.jpg
+captions.txt
+models/
