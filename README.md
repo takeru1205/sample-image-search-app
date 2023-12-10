@@ -36,3 +36,4 @@ $ make embed
 $ docker compose build
 $ docker compose up -d
 ```
+and open [localhost:8501](http://localhost:8501)
